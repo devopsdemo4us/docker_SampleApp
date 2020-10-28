@@ -34,8 +34,10 @@ jobs:
           echo test, and deploy your project.
           
   configure:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+#     if: github.event.pull_request.merged == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Run configure script
-        if: github.event.pull_request.merged == 'true'
+        
         run: echo Hello Configure
