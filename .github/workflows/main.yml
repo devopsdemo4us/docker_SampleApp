@@ -34,10 +34,12 @@ jobs:
           echo test, and deploy your project.
           
   configure:
-    if: github.event.pull_request.merged == true
+    
+    
 #     if: github.event.pull_request.merged == 'true'
     runs-on: ubuntu-latest
     steps:
+      - if: github.event.pull_request.merged == true
       - name: Run configure script
         
         run: echo Hello Configure
